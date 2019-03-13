@@ -102,7 +102,7 @@ exports.compute = function () {
         console.log('Compute!', party_id);
         if (party_id !== 's1') return;
 
-        var i = batch_size * (leader % config.replicas);
+        var i = leader % config.replicas;
         // MPC
         (function batch(i, j) {
             // Barrier for memory optimization

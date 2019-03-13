@@ -1,3 +1,4 @@
+#!/bin/bash
 PARTIES="$1"
 REPLICAS="$2"
 IP="$3"

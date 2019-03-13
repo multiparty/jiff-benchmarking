@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install python
-sudo apt-get -y install python2.7
+apt-get -y install python2.7
 
 # install node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
@@ -16,6 +16,7 @@ git submodule update
 
 # configure repo
 npm install
+#
 # ./script.sh <parties> <replicas> <IP> <computation ID> &
 
 # for server do:
