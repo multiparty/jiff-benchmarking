@@ -1,4 +1,6 @@
 #!/bin/bash
+export HOME="/root"
+cd ~
 
 # install python
 apt-get -y install python2.7
@@ -15,9 +17,21 @@ git submodule init
 git submodule update
 
 # configure repo
-npm install
+npm install --unsafe-perm
 #
-# ./script.sh <parties> <replicas> <IP> <computation ID> &
+
+# for clients:
+#   if just one client per machine (one core)
+#     ./script.sh <parties> <replicas> <IP> <computation ID> > out &
+#
+#   if running several clients per machines (multi-cores):
+#     ./script.sh <parties> <replicas> <IP> <computation ID> > out1 &
+#     sleep 10
+#     ./script.sh <parties> <replicas> <IP> <computation ID> > out2 &
+#     sleep 10
+#     ./script.sh <parties> <replicas> <IP> <computation ID> > out3 &
+#     sleep 10
+#     ./script.sh <parties> <replicas> <IP> <computation ID> > out4 &
 
 # for server do:
 # screen
@@ -27,3 +41,5 @@ npm install
 # ...
 # Ctrl-A then Ctrl-D to detach screen
 # Ctrl-D to exist ssh
+
+# node --max-old-space-size=8192 server.js > out
